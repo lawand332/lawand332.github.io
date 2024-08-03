@@ -4,58 +4,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyFlower Hotels</title>
-    <link rel="stylesheet" href="styles.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f8f9fa;
+            color: #333;
         }
         header {
-            background-color: #4CAF50;
+            position: relative;
+            height: 100vh;
+            background: url('hero.jpg') no-repeat center center/cover;
             color: white;
             text-align: center;
-            padding: 1rem 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
-        nav ul {
-            list-style-type: none;
+        header h1 {
+            font-size: 3rem;
             margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #333;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 1rem;
         }
-        nav ul li {
-            float: left;
+        header p {
+            font-size: 1.5rem;
+            margin: 0;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 0.5rem;
         }
-        nav ul li a {
-            display: block;
+        nav {
+            background: #333;
             color: white;
-            text-align: center;
-            padding: 14px 16px;
+            display: flex;
+            justify-content: space-around;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            color: white;
             text-decoration: none;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
         }
-        nav ul li a:hover {
-            background-color: #111;
+        nav a:hover {
+            background: #575757;
         }
-        .container {
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .rooms, .services, .gallery, .reviews, .contact {
+            margin-bottom: 3rem;
+        }
+        .rooms img, .gallery img {
+            width: 100%;
+            height: auto;
+        }
+        .rooms .room, .services .service {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .rooms .room div, .services .service div {
+            flex: 1;
             padding: 2rem;
-        }
-        .content {
-            margin: 20px auto;
-            max-width: 800px;
-            padding: 2rem;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         footer {
-            background-color: #333;
+            background: #333;
             color: white;
             text-align: center;
             padding: 1rem 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+        }
+        .contact form {
+            display: flex;
+            flex-direction: column;
+        }
+        .contact form input, .contact form textarea {
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .contact form input[type="submit"] {
+            background: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .contact form input[type="submit"]:hover {
+            background: #575757;
         }
     </style>
 </head>
@@ -63,41 +113,107 @@
 
 <header>
     <h1>Welcome to MyFlower Hotels</h1>
+    <p>Experience Luxury and Comfort</p>
 </header>
 
 <nav>
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
+    <a href="#about">About Us</a>
+    <a href="#rooms">Rooms</a>
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
 </nav>
 
-<div class="container">
-    <div class="content" id="home">
-        <h2>Home</h2>
-        <p>Welcome to MyFlower Hotels. We offer the best accommodations with beautiful views and excellent services.</p>
-    </div>
-    <div class="content" id="about">
+<section id="about">
+    <div class="section-title">
         <h2>About Us</h2>
-        <p>MyFlower Hotels is a premier chain of luxury hotels. We provide top-notch hospitality services and a unique experience for our guests.</p>
     </div>
-    <div class="content" id="services">
+    <p>MyFlower Hotels is a premier chain of luxury hotels. We provide top-notch hospitality services and a unique experience for our guests. Our mission is to offer an unforgettable stay with unmatched comfort and service.</p>
+</section>
+
+<section id="rooms" class="rooms">
+    <div class="section-title">
+        <h2>Rooms</h2>
+    </div>
+    <div class="room">
+        <div><img src="deluxe-room.jpg" alt="Deluxe Room"></div>
+        <div>
+            <h3>Deluxe Room</h3>
+            <p>Our Deluxe Rooms offer the perfect blend of luxury and comfort. Amenities include free Wi-Fi, a king-sized bed, and a stunning view of the city.</p>
+        </div>
+    </div>
+    <div class="room">
+        <div><img src="suite.jpg" alt="Suite"></div>
+        <div>
+            <h3>Suite</h3>
+            <p>Our Suites provide a spacious and luxurious experience, featuring a separate living area, premium furnishings, and exclusive services.</p>
+        </div>
+    </div>
+    <div class="room">
+        <div><img src="family-room.jpg" alt="Family Room"></div>
+        <div>
+            <h3>Family Room</h3>
+            <p>Perfect for families, our Family Rooms offer ample space, comfortable bedding, and a range of amenities to ensure a pleasant stay for everyone.</p>
+        </div>
+    </div>
+</section>
+
+<section id="services" class="services">
+    <div class="section-title">
         <h2>Our Services</h2>
-        <ul>
-            <li>Comfortable Rooms</li>
-            <li>24/7 Room Service</li>
-            <li>Spa and Wellness Center</li>
-            <li>Free Wi-Fi</li>
-            <li>Restaurant and Bar</li>
-        </ul>
     </div>
-    <div class="content" id="contact">
+    <div class="service">
+        <div><img src="spa.jpg" alt="Spa"></div>
+        <div>
+            <h3>Spa and Wellness</h3>
+            <p>Relax and rejuvenate at our world-class spa and wellness center, offering a variety of treatments to soothe your mind and body.</p>
+        </div>
+    </div>
+    <div class="service">
+        <div><img src="restaurant.jpg" alt="Restaurant"></div>
+        <div>
+            <h3>Restaurant and Bar</h3>
+            <p>Indulge in gourmet dining at our restaurant, featuring a diverse menu of international cuisine, and unwind at our stylish bar.</p>
+        </div>
+    </div>
+    <div class="service">
+        <div><img src="gym.jpg" alt="Gym"></div>
+        <div>
+            <h3>Fitness Center</h3>
+            <p>Stay fit during your stay with access to our fully-equipped fitness center, offering a range of exercise equipment and personal training services.</p>
+        </div>
+    </div>
+</section>
+
+<section id="gallery" class="gallery">
+    <div class="section-title">
+        <h2>Gallery</h2>
+    </div>
+    <img src="hotel1.jpg" alt="Hotel Image 1">
+    <img src="hotel2.jpg" alt="Hotel Image 2">
+    <img src="hotel3.jpg" alt="Hotel Image 3">
+</section>
+
+<section id="reviews" class="reviews">
+    <div class="section-title">
+        <h2>Customer Reviews</h2>
+    </div>
+    <p>"Our stay at MyFlower Hotels was absolutely fantastic. The service was impeccable and the amenities were top-notch." - Jane Doe</p>
+    <p>"The best hotel experience I've ever had. The rooms were luxurious and the staff was incredibly attentive." - John Smith</p>
+</section>
+
+<section id="contact" class="contact">
+    <div class="section-title">
         <h2>Contact Us</h2>
-        <p>If you have any questions or need further information, please contact us at <a href="mailto:info@myflowerhotels.com">info@myflowerhotels.com</a>.</p>
     </div>
-</div>
+    <form action="mailto:info@myflowerhotels.com" method="post" enctype="text/plain">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <input type="submit" value="Send">
+    </form>
+</section>
 
 <footer>
     <p>&copy; 2024 MyFlower Hotels. All rights reserved.</p>
