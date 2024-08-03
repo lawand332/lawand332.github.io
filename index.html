@@ -6,16 +6,16 @@
     <title>MyFlower Hotels</title>
     <style>
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Garamond', serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f9fa;
+            background-color: #f0f0f5;
             color: #333;
         }
         header {
             position: relative;
             height: 100vh;
-            background: url('hero.jpg') no-repeat center center/cover;
+            background: #333;
             color: white;
             text-align: center;
             display: flex;
@@ -24,22 +24,22 @@
             align-items: center;
         }
         header h1 {
-            font-size: 3rem;
+            font-size: 4rem;
             margin: 0;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 1rem;
+            padding: 0.5rem 1rem;
+            background: rgba(0, 0, 0, 0.6);
         }
         header p {
             font-size: 1.5rem;
-            margin: 0;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 0.5rem;
+            margin: 0.5rem 0 0;
+            padding: 0.5rem 1rem;
+            background: rgba(0, 0, 0, 0.6);
         }
         nav {
-            background: #333;
+            background: #222;
             color: white;
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
             padding: 1rem 0;
             position: sticky;
             top: 0;
@@ -50,9 +50,10 @@
             text-decoration: none;
             font-size: 1rem;
             padding: 0.5rem 1rem;
+            transition: background 0.3s ease;
         }
         nav a:hover {
-            background: #575757;
+            background: #444;
         }
         section {
             padding: 4rem 2rem;
@@ -62,13 +63,25 @@
         .section-title {
             text-align: center;
             margin-bottom: 2rem;
+            font-size: 2.5rem;
+            color: #555;
+            position: relative;
         }
-        .rooms, .services, .gallery, .reviews, .contact {
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: #333;
+            display: block;
+            margin: 1rem auto 0;
+        }
+        .about, .rooms, .services, .gallery, .reviews, .contact {
             margin-bottom: 3rem;
         }
-        .rooms img, .gallery img {
-            width: 100%;
-            height: auto;
+        .about p, .services p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            text-align: center;
         }
         .rooms .room, .services .service {
             display: flex;
@@ -76,20 +89,42 @@
             margin-bottom: 2rem;
             background: white;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border-radius: 10px;
         }
         .rooms .room div, .services .service div {
             flex: 1;
             padding: 2rem;
         }
-        footer {
-            background: #333;
-            color: white;
+        .room-description, .service-description {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-top: 4px solid #333;
+        }
+        .room-description h3, .service-description h3 {
+            margin-top: 0;
+            color: #444;
+        }
+        .room-description p, .service-description p {
+            margin: 1rem 0 0;
+            font-size: 1rem;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+        .reviews p {
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
             text-align: center;
-            padding: 1rem 0;
         }
         .contact form {
             display: flex;
             flex-direction: column;
+            align-items: center;
         }
         .contact form input, .contact form textarea {
             margin-bottom: 1rem;
@@ -97,15 +132,35 @@
             font-size: 1rem;
             border: 1px solid #ccc;
             border-radius: 5px;
+            width: 100%;
+            max-width: 600px;
         }
         .contact form input[type="submit"] {
             background: #333;
             color: white;
             border: none;
             cursor: pointer;
+            transition: background 0.3s ease;
         }
         .contact form input[type="submit"]:hover {
-            background: #575757;
+            background: #555;
+        }
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            position: relative;
+        }
+        footer p {
+            margin: 0;
+        }
+        footer p a {
+            color: #ff9900;
+            text-decoration: none;
+        }
+        footer p a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -125,7 +180,7 @@
     <a href="#contact">Contact</a>
 </nav>
 
-<section id="about">
+<section id="about" class="about">
     <div class="section-title">
         <h2>About Us</h2>
     </div>
@@ -137,22 +192,19 @@
         <h2>Rooms</h2>
     </div>
     <div class="room">
-        <div><img src="deluxe-room.jpg" alt="Deluxe Room"></div>
-        <div>
+        <div class="room-description">
             <h3>Deluxe Room</h3>
             <p>Our Deluxe Rooms offer the perfect blend of luxury and comfort. Amenities include free Wi-Fi, a king-sized bed, and a stunning view of the city.</p>
         </div>
     </div>
     <div class="room">
-        <div><img src="suite.jpg" alt="Suite"></div>
-        <div>
+        <div class="room-description">
             <h3>Suite</h3>
             <p>Our Suites provide a spacious and luxurious experience, featuring a separate living area, premium furnishings, and exclusive services.</p>
         </div>
     </div>
     <div class="room">
-        <div><img src="family-room.jpg" alt="Family Room"></div>
-        <div>
+        <div class="room-description">
             <h3>Family Room</h3>
             <p>Perfect for families, our Family Rooms offer ample space, comfortable bedding, and a range of amenities to ensure a pleasant stay for everyone.</p>
         </div>
@@ -164,22 +216,19 @@
         <h2>Our Services</h2>
     </div>
     <div class="service">
-        <div><img src="spa.jpg" alt="Spa"></div>
-        <div>
+        <div class="service-description">
             <h3>Spa and Wellness</h3>
             <p>Relax and rejuvenate at our world-class spa and wellness center, offering a variety of treatments to soothe your mind and body.</p>
         </div>
     </div>
     <div class="service">
-        <div><img src="restaurant.jpg" alt="Restaurant"></div>
-        <div>
+        <div class="service-description">
             <h3>Restaurant and Bar</h3>
             <p>Indulge in gourmet dining at our restaurant, featuring a diverse menu of international cuisine, and unwind at our stylish bar.</p>
         </div>
     </div>
     <div class="service">
-        <div><img src="gym.jpg" alt="Gym"></div>
-        <div>
+        <div class="service-description">
             <h3>Fitness Center</h3>
             <p>Stay fit during your stay with access to our fully-equipped fitness center, offering a range of exercise equipment and personal training services.</p>
         </div>
@@ -216,7 +265,7 @@
 </section>
 
 <footer>
-    <p>&copy; 2024 MyFlower Hotels. All rights reserved.</p>
+    <p>&copy; 2024 MyFlower Hotels. All rights reserved. | <a href="https://www.instagram.com/myflower3.hotel/">Follow us on Instagram</a></p>
 </footer>
 
 </body>
